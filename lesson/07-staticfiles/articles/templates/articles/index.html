@@ -1,0 +1,27 @@
+<!-- base.html에서 load static을 한다면
+ 자식 템플릿에서도 load static이 될까? 
+  => 상속 안 된다. 해당 파일에서만 load 됨 -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  {% comment %} <img src="{% static "articles/sample-1.png" %}" alt="sample-image">
+  <img src="{% static "sample-2.png" %}" alt="sample-image"> {% endcomment %}
+  <h1>Articles</h1>
+  <a href="{% url "articles:create" %}">CREATE</a>
+  {% for article in articles %}
+    <p>글 번호: {{ article.pk }}</p>
+    <a href="{% url "articles:detail" article.pk %}">
+      <p>글 제목: {{ article.title }}</p>
+    </a>
+    <p>글 내용: {{ article.content }}</p>
+    <hr>
+  {% endfor %}
+
+</body>
+</html>
