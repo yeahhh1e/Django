@@ -16,6 +16,3 @@ def detail(request, work):
         'work': work
     }
     return render(request, 'todos/detail.html', context)
-
-def login(request):
-    return render(request, 'accounts/login.html')
