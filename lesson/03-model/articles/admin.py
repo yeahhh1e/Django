@@ -1,4 +1,4 @@
-from django.contrib import admin
+from django.conpytrib import admin
 from .models import Article
 
 # Register your models here.
